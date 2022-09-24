@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 1194463069}
   - component: {fileID: 1194463068}
   m_Layer: 5
-  m_Name: Current Score
+  m_Name: ScoreCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
