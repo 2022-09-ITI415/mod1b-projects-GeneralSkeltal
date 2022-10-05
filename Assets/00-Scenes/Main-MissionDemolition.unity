@@ -726,6 +726,7 @@ MonoBehaviour:
   - {fileID: 8085068327630677215, guid: 3dcea05297cda114caa569e9ea7fcfbb, type: 3}
   - {fileID: 8085068327630677215, guid: 0e50b3c9b8b35c4498d6498fa3704856, type: 3}
   - {fileID: 8085068327630677215, guid: 4a5474686576e9542bfa44b78d88f0a0, type: 3}
+  viewBothPivot: {fileID: 82999525}
   level: 0
   levelMax: 0
   shotsTaken: 0
@@ -839,7 +840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 2380423486492216305, guid: c431a5b37d8a4ff4880be7a417158874, type: 3}
-  velocityMult: 8
+  velocityMult: 10
   launchPoint: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 0}
@@ -1342,6 +1343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099365245}
   - component: {fileID: 2099365244}
+  - component: {fileID: 2099365246}
   m_Layer: 0
   m_Name: Projectile Line
   m_TagString: Untagged
@@ -1463,6 +1465,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2099365246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099365243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161e5f8a3c1e2f842a159dbf36c4aac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDist: 0.1
 --- !u!1 &2117179779
 GameObject:
   m_ObjectHideFlags: 0

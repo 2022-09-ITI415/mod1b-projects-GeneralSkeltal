@@ -16,6 +16,7 @@ public class MissionDemolition : MonoBehaviour
     public Text uitButton; // The Text on UIButton_View
     public Vector3 castlePos; // The place to put castles
     public GameObject[] castles; // An array of the castles
+    public GameObject viewBothPivot;
     [Header("Set Dynamically")]
     public int level; // The current level
     public int levelMax; // The number of levels
@@ -30,6 +31,7 @@ public class MissionDemolition : MonoBehaviour
         level = 0;
         levelMax = castles.Length;
         StartLevel();
+        uitButton.text = "Show Slingshot";
     }
     void StartLevel()
     {
@@ -105,9 +107,9 @@ public class MissionDemolition : MonoBehaviour
 
                 break;
             case "Show Both":
-                FollowCam.POI = GameObject.Find("ViewBoth");
+                FollowCam.POI = viewBothPivot;
                 uitButton.text = "Show Slingshot";
-                break;
+                break;                
         }
     }
     // Static method that allows code anywhere to increment shotsTaken
