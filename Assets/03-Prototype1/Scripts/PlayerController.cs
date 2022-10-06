@@ -17,14 +17,20 @@ public class PlayerController : MonoBehaviour {
     private int count;
 
     public bool isGrounded;
+    Vector3 startPos;
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText ();
         winText.text = "";
+        startPos = transform.position;
     }
-    
+
+    private void Update()
+    {
+        HandleJump();
+    }
     void FixedUpdate ()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -32,16 +38,23 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(movement * speed);
-        HandleJump();
+        rb.AddForce(movement * speed);       
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pick Up"))
+        //if (other.gameObject.CompareTag("Pick Up"))
+        //{
+        //    other.gameObject.SetActive(false);
+        //    count = count + 1;
+        //    SetCountText ();
+        //}
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {  
+        if (collision.gameObject.GetComponent<DeathGround>())
         {
-            other.gameObject.SetActive(false);
-            count = count + 1;
-            SetCountText ();
+            transform.position = startPos;
         }
     }
     void SetCountText ()
