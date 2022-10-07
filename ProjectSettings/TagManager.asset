@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Apple
   - Projectile
+  - Moving_Platform
   layers:
   - Default
   - TransparentFX

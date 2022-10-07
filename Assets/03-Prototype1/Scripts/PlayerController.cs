@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
-        SetCountText ();
-        winText.text = "";
+        //SetCountText ();
+        //winText.text = "";
         startPos = transform.position;
     }
 
@@ -42,12 +42,17 @@ public class PlayerController : MonoBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.CompareTag("Pick Up"))
-        //{
-        //    other.gameObject.SetActive(false);
-        //    count = count + 1;
-        //    SetCountText ();
-        //}
+        GameObject TGO = other.gameObject;
+        GameObject PGO = TGO.transform.root.gameObject;
+        if (PGO.gameObject.CompareTag("Moving_Platform"))
+        {
+            rb.isKinematic = true;
+            rb.angularVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
+            this.gameObject.transform.SetParent(PGO.transform);
+            //count = count + 1;
+            //SetCountText ();
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
